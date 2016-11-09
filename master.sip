@@ -15,15 +15,11 @@
 
     QLibrary libqt(qt_lib);
     libqt.setLoadHints(QLibrary::ExportExternalSymbolsHint);
-    bool loadedOk = libqt.load();
-    std::cout << "QT load:" << loadedOk << std::endl;
+    libqt.load();
 
     QLibrary libisis(isis_lib);
     libisis.setLoadHints(QLibrary::ExportExternalSymbolsHint);
-    loadedOk = libisis.load();
-    std::cout << "ISIS load: " << loadedOk << std::endl;
-    std::cout << libisis.errorString() << std::endl;
-
+    libisis.load();
 
 %End
 
