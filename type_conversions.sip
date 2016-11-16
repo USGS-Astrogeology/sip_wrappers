@@ -14,9 +14,9 @@
     PyObject *l = PyList_New(size);
     for (size_t i = 0; i < size; ++i) {
 
-      Isis::BundleControlPoint* cppCPoint = new Isis::BundleControlPoint(sipCpp->at(i).data());
+      Isis::BundleControlPoint* cppCPoint = sipCpp->at(i).data();
 
-      PyObject *pyCPoint = sipConvertFromType((void*)(cppCPoint), sipType_QSharedPointer_Isis_BundleControlPoint, NULL);
+      PyObject *pyCPoint = sipConvertFromType((void*)(cppCPoint), sipType_Isis_BundleControlPoint, NULL);
       PyList_SetItem(l, i, pyCPoint);
     }
 
@@ -25,15 +25,15 @@
 
   %ConvertToTypeCode
     Py_ssize_t size = PyList_Size(sipPy);
-    QVector<Isis::BundleControlPoint> *cppPointList = new QVector<Isis::BundleControlPoint>();
+    QVector<QSharedPointer<Isis::BundleControlPoint> > *cppPointList = new QVector<QSharedPointer<Isis::BundleControlPoint> > ();
     int sipErr = 0;
     for(int i = 0; i < size; i++) {
       PyObject *pyCPoint = PyList_GET_ITEM(sipPy, i);
-      Isis::BundleControlPoint *cppCPoint = (Isis::BundleControlPoint*)sipConvertToType(pyCPoint, sipType_QSharedPointer_Isis_BundleControlPoint, NULL, SIP_NOT_NONE, NULL, &sipErr);
-      cppStatList->append(*cppCPoint);
+      Isis::BundleControlPoint *cppCPoint = (Isis::BundleControlPoint*)sipConvertToType(pyCPoint, sipType_Isis_BundleControlPoint, NULL, SIP_NOT_NONE, NULL, &sipErr);
+      cppPointList->append(QSharedPointer<Isis::BundleControlPoint>(cppCPoint));
     }
 
-    *sipCppPtr = cppStatList;
+    *sipCppPtr = cppPointList;
     return sipGetState(sipTransferObj);
   %End
 
@@ -140,7 +140,30 @@
   %End
 };
 
+// convert Bundlesettings wrapped in a QSharedPointer in Isis
+%MappedType QSharedPointer<Isis::BundleImage>
+{
+  %TypeHeaderCode
+  #include "BundleImage.h"
+  #include <QSharedPointer>
+  %End
 
+  %ConvertFromTypeCode
+    Isis::BundleImage *cpp = sipCpp->data();
+    PyObject *py = sipConvertFromType(cpp, sipType_Isis_BundleImage, NULL);
+    return py;
+  %End
+
+  %ConvertToTypeCode
+    int sipErr = 0;
+    QSharedPointer<Isis::BundleImage>* cpp_qsp = new QSharedPointer<Isis::BundleImage>();
+    Isis::BundleImage *cpp = (Isis::BundleImage*)sipConvertToType(sipPy, sipType_Isis_BundleImage, NULL, SIP_NOT_NONE, NULL, &sipErr);
+    cpp_qsp->reset(cpp);
+    *sipCppPtr = cpp_qsp;
+
+    return sipGetState(sipTransferObj);
+  %End
+};
 
 
 // convert Bundlesettings wrapped in a QSharedPointer in Isis

@@ -111,29 +111,7 @@ namespace Isis {
       bool converged() const; // or initialze method
 
       QVector<QSharedPointer<Isis::BundleControlPoint> > &bundleControlPoints();
-      %MethodCode
-          QVector<QSharedPointer<BundleControlPoint> > pointVect = sipCpp->bundleControlPoints();
-          int size = pointVect.size();
-          PyObject *l = PyList_New(size);
-
-          for (size_t i = 0; i < size; ++i) {
-
-            Isis::BundleControlPoint* cppCPoint = pointVect.at(i).data();
-
-            PyObject *pyCPoint = sipConvertFromType((void*)(cppCPoint), sipType_Isis_BundleControlPoint, NULL);
-            PyList_SetItem(l, i, pyCPoint);
-          }
-
-          return l;
-      %End
-
-      // returns QSharedPointer<Isis::ControlNet>
       QSharedPointer<Isis::ControlNet> outputControlNet() const;
-      %MethodCode
-        Isis::ControlNet *qsp = sipCpp->outputControlNet().data();
-        PyObject *pyCnet = sipConvertFromType((void*)(cppCPoint), sipType_Isis_ControlNet, NULL);
-        return pyCnet;
-      %End
 
       int iterations() const;
 

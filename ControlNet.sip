@@ -1,5 +1,5 @@
-namespace Isis {
 
+namespace Isis {
   class ControlNet : public QObject {
     %TypeHeaderCode
     #include "ControlNet.h"

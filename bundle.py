@@ -1,6 +1,9 @@
 import isis
 import inspect
 
+import pandas as pd
+import numpy as np
+
 bundle = isis.Isis
 
 dir(bundle)
@@ -29,7 +32,48 @@ results.outputResiduals();
 print(results)
 
 results = results.bundleResults()
-print(results.bundleControlPoints())
+
+points = results.bundleControlPoints()
+measures = points[1].measures()
+
+print(len(points))
+print(points[3:8])
+print(points[0])
+
+print(measures)
+print(len(measures))
+print(points[1].numberOfMeasures())
+
+def residuals(bundle_results):
+    control_points = results.bundleControlPoints()
+
+    header = ['id', 'file_name', 'serial_num', 'focal_plane_measuredX(mm)',
+              'focal_plane_measuredY(mm)', 'sample', 'line', 'sample_residual',
+              'line_residual', 'residual_magnitude', 'is_rejected']
+    data = []
+
+    for point in control_points:
+        measures = point.measures()
+        for measure in measures:
+            row = [
+                point.id(),
+                measure.parentBundleImage().fileName(),
+                measure.cubeSerialNumber(),
+                measure.focalPlaneMeasuredX(),
+                measure.focalPlaneMeasuredY(),
+                measure.sample(),
+                measure.line(),
+                measure.sampleResidual(),
+                measure.lineResidual(),
+                measure.residualMagnitude(),
+                measure.isRejected()]
+            data.append(row)
+
+    return pd.DataFrame(data, columns=header)
+
+print(residuals(results))
+
+
 
 
 # print(inspect.getargspec(bundle.Isis.BundleAdjust.__init__)[0])
