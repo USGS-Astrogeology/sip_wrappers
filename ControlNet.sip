@@ -1,4 +1,3 @@
-
 namespace Isis {
   class ControlNet : public QObject {
     %TypeHeaderCode

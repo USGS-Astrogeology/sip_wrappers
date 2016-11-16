@@ -39,7 +39,6 @@
 
 };
 
-
 %MappedType QList<Isis::Statistics>
 {
   %TypeHeaderCode
