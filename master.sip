@@ -1,4 +1,4 @@
-%Module(name=bundle,
+%Module(name=isis,
         version=0,
         keyword_arguments="Optional")
 
@@ -26,6 +26,10 @@
 
 %Include type_conversions.sip
 
+%Include ControlPoint.sip
+%Include BundleMeasure.sip
+%Include BundleControlPoint.sip
+%Include BundleImage.sip
 %Include ControlNet.sip
 %Include Statistics.sip
 %Include BundleResults.sip

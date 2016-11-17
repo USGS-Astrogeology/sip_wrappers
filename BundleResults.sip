@@ -109,8 +109,10 @@ namespace Isis {
       double elapsedTime() const;
       double elapsedTimeErrorProp() const;
       bool converged() const; // or initialze method
-      // QVector<BundleControlPointQsp> &bundleControlPoints();
+
+      QVector<QSharedPointer<Isis::BundleControlPoint> > &bundleControlPoints();
       QSharedPointer<Isis::ControlNet> outputControlNet() const;
+
       int iterations() const;
 
       int numberMaximumLikelihoodModels() const;
