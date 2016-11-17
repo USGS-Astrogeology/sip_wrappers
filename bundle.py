@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import isis
 import inspect
 
@@ -6,12 +5,7 @@ import pandas as pd
 import numpy as np
 
 bundle = isis.Isis
-=======
-import bundle
-import inspect
 
-bundle = bundle.Isis
->>>>>>> 3e004ab200c549aa21d8ca531e36205e2e453e95
 
 dir(bundle)
 
@@ -32,12 +26,11 @@ ba = bundle.BundleAdjust(bundle_settings, 'Ames_7-ImageLSTest_USGS_combined.net'
 
 results = ba.solveCholeskyBR()
 
-results.outputText();
-results.outputPointsCSV();
-results.outputResiduals();
-
-<<<<<<< HEAD
-print(results)
+# results.outputText();
+# results.outputPointsCSV();
+# results.outputResiduals();
+#
+# print(results)
 
 results = results.bundleResults()
 
@@ -80,10 +73,3 @@ def residuals(bundle_results):
     return pd.DataFrame(data, columns=header)
 
 print(residuals(results))
-
-
-
-
-=======
->>>>>>> 3e004ab200c549aa21d8ca531e36205e2e453e95
-# print(inspect.getargspec(bundle.Isis.BundleAdjust.__init__)[0])
