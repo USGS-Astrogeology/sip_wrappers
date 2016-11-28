@@ -8,7 +8,6 @@ namespace Isis {
 
     public:
 
-
       SIP_PYTYPE measures();
       %MethodCode
         size_t size = sipCpp->size();
