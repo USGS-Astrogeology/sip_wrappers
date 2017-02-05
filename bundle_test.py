@@ -1,10 +1,7 @@
-import inspect
+import bundle
 
 import pandas as pd
 import numpy as np
-
-import bundle
-import inspect
 
 def residuals(bundle_results):
     control_points = results.bundleControlPoints()
@@ -100,5 +97,3 @@ if __name__ == '__main__':
         return pd.DataFrame(data, columns=header)
 
     print(residuals(results)[:5])
-
-    import threading
