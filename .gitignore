@@ -3,6 +3,11 @@
 ### C++ ###
 # Prerequisites
 *.d
+*.cpp
+*.c
+*.h
+*.hpp
+*.sbf
 
 # Compiled Object files
 *.slo
