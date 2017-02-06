@@ -1,7 +1,7 @@
 %Include type_conversions.sip
 
 namespace Isis {
-  class BundleMeasure {
+  class BundleMeasure /NoDefaultCtors/ {
     %TypeHeaderCode
       #include "BundleMeasure.h"
     %End

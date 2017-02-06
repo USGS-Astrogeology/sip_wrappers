@@ -1,10 +1,14 @@
 namespace Isis {
-  class BundleImage {
+  class BundleImage /NoDefaultCtors/ {
   %TypeHeaderCode
     #include "BundleImage.h"
   %End
-  
+  %InstanceCode
+    sipCpp = new Isis::BundleImage(NULL, "", "");
+  %End
   public:
+
+
     // QSharedPointer<BundleObservation> parentObservation();
     QString serialNumber();
     QString fileName();
