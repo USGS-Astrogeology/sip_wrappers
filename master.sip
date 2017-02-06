@@ -47,21 +47,26 @@
       bool load_ok = lib_loader.load();
 
       // if verbose is true, print out load info
-      if (verbose)
-        if (load_ok)
+      if (verbose) {
+        if (load_ok) {
           cout << "Loaded " + lib_dir.toStdString() + " : OK" << endl;
-        else if (!load_ok)
+        }
+        else if (!load_ok) {
           cout << "Loaded " + lib_dir.toStdString() + " : FAILED" << endl
                << lib_loader.errorString().toStdString() << endl;
+        }
+      }
+
     }
+
   }
 %End
 
 %InitialisationCode
     QString isis_root = QString::fromStdString(getenv("ISISROOT"));
 
-    load_libs(isis_root + "/3rdParty/lib/lib*", true);
-    load_libs(isis_root + "/lib/libisis*", true);
+    load_libs(isis_root + "/3rdParty/lib/lib*");
+    load_libs(isis_root + "/lib/libisis*");
 %End
 
 %Include type_conversions.sip

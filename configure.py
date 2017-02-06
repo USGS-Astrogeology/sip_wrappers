@@ -48,7 +48,7 @@ def main (module):
     if not isis_root:
         raise("Please set ISIS")
 
-    extra_cxxflags = ["$(ALLINCDIRS)"]
+    extra_cxxflags = ["$(ALLINCDIRS)", "-Wstrict-aliasing=0"]
     extra_libs = ["$(ALLLIBS)", "-Wl,-rpath,"+isis_root+"/lib", "-Wl,-rpath,"+isis_root+"/3rdParty/lib"]
     extra_lib_dirs = ["$(ALLLIBDIRS)"]
 

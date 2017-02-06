@@ -89,7 +89,7 @@
     if ((l = PyList_New(sipCpp->size())) == NULL)
         return NULL;
 
-    for (size_t i = 0; i < sipCpp->size(); ++i) {
+    for (int i = 0; i < sipCpp->size(); ++i) {
       Isis::BundleObservationSolveSettings *settings = new Isis::BundleObservationSolveSettings(sipCpp->at(i));
 
       PyObject *pySettings = sipConvertFromType((void*)(settings), sipType_Isis_BundleObservationSolveSettings, NULL);
@@ -118,7 +118,7 @@
     QList<Isis::BundleObservationSolveSettings> *cppSettingsList = new QList<Isis::BundleObservationSolveSettings>();
     int state;
 
-    for(size_t i = 0; i < size; i++) {
+    for(Py_ssize_t i = 0; i < size; i++) {
       PyObject *pySettings = PyList_GET_ITEM(sipPy, i);
       Isis::BundleObservationSolveSettings *settings;
 
@@ -209,7 +209,7 @@
 
   %ConvertToTypeCode
     int sipErr = 0;
-    QSharedPointer<Isis::ControlNet> *qspControlNet;
+    QSharedPointer<Isis::ControlNet> *qspControlNet = NULL;
     if (!sipCanConvertToType(sipPy, sipType_Isis_ControlNet, SIP_NOT_NONE)) {
         sipErr = 1;
     }
