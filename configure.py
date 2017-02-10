@@ -48,13 +48,13 @@ def main (module):
     if not isis_root:
         raise("Please set ISIS")
 
-    extra_cxxflags = ["$(ALLINCDIRS)", "-Wstrict-aliasing=0"]
     extra_libs = ["$(ALLLIBS)", "-Wl,-rpath,"+isis_root+"/lib", "-Wl,-rpath,"+isis_root+"/3rdParty/lib"]
-    extra_lib_dirs = ["$(ALLLIBDIRS)"]
 
     makefile = ModuleMakefile(configuration=config, build_file=build_file, installs=installs)
-    makefile.extra_cxxflags = extra_cxxflags
-    makefile.extra_lflags = extra_lib_dirs
+    makefile.extra_cxxflags = ["$(ALLINCDIRS)", "-Wstrict-aliasing=0", "-Wno-unused-variable"]
+    makefile.extra_lflags =  ["$(ALLLIBDIRS)"]
+    makefile.extra_include_dirs = [x[0] for x in os.walk('incs/')]
+    makefile.extra_lib_dirs = [isis_root + '/3rdParty/lib', isis_root + 'lib']
     makefile.generate()
 
     # add import line for isismake.os
