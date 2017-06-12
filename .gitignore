@@ -5,7 +5,6 @@
 *.d
 *.cpp
 *.c
-*.h
 *.hpp
 *.sbf
 
