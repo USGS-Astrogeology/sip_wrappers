@@ -8,23 +8,23 @@ namespace Isis {
 
     public:
 
-      bool isRejected() const;
+      bool isRejected() const throw(Isis::IException);
       // Camera *camera() const;
       // Isis::BundleControlPoint *parentControlPoint();
-      QSharedPointer<Isis::BundleImage> parentBundleImage();
+      QSharedPointer<Isis::BundleImage> parentBundleImage() throw(Isis::IException);
       // QSharedPointer<BundleObservation> parentBundleObservation();
       // const QSharedPointer<BundleObservationSolveSettings> observationSolveSettings();
 
-      double sample() const;
-      double sampleResidual() const;
-      double line() const;
-      double lineResidual() const;
-      double residualMagnitude() const;
-      QString cubeSerialNumber() const;
-      double focalPlaneComputedX() const;
-      double focalPlaneComputedY() const;
-      double focalPlaneMeasuredX() const;
-      double focalPlaneMeasuredY() const;
-      int observationIndex() const;
+      double sample() const throw(Isis::IException);
+      double sampleResidual() const throw(Isis::IException);
+      double line() const throw(Isis::IException);
+      double lineResidual() const throw(Isis::IException);
+      double residualMagnitude() const throw(Isis::IException);
+      QString cubeSerialNumber() const throw(Isis::IException);
+      double focalPlaneComputedX() const throw(Isis::IException);
+      double focalPlaneComputedY() const throw(Isis::IException);
+      double focalPlaneMeasuredX() const throw(Isis::IException);
+      double focalPlaneMeasuredY() const throw(Isis::IException);
+      int observationIndex() const throw(Isis::IException);
   };
 };

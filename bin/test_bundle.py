@@ -31,13 +31,13 @@ def residuals(bundle_results):
     return pd.DataFrame(data, columns=header)
 
 if __name__ == '__main__':
-    bundle = bundle.Isis
+    Isis = bundle.Isis
 
-    bundle_settings = bundle.BundleSettings()
+    bundle_settings = Isis.BundleSettings()
     bundle_settings.setSolveOptions(solveRadius=True, errorPropagation=True)
     bundle_settings.setOutlierRejection(True)
 
-    obs_settings = bundle.BundleObservationSolveSettings()
+    obs_settings = Isis.BundleObservationSolveSettings()
     pos_option = obs_settings.stringToInstrumentPositionSolveOption('POSITIONS')
     obs_settings.setInstrumentPositionSettings(pos_option, positionAprioriSigma=100)
 
@@ -46,7 +46,12 @@ if __name__ == '__main__':
 
     bundle_settings.setObservationSolveOptions([obs_settings])
 
-    ba = bundle.BundleAdjust(bundle_settings, 'Ames_7-ImageLSTest_USGS_combined.net', 'cubes.lis', False)
+    try:
+        ba = Isis.BundleAdjust(bundle_settings, 'data/Ames_7-ImageLSTest_USGS_combined.net', 'data/cubes.lis', False)
+    except bundle.IException as ierr:
+        print('caught Isis Error')
+        print(ierr)
+        exit()
 
     results = ba.solveCholeskyBR()
 

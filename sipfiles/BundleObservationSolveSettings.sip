@@ -31,9 +31,9 @@ namespace Isis{
                                              the instrument positions.*/
     };
 
-    BundleObservationSolveSettings();
-    InstrumentPositionSolveOption stringToInstrumentPositionSolveOption(QString option);
-    InstrumentPointingSolveOption stringToInstrumentPointingSolveOption(QString option);
+    BundleObservationSolveSettings()  throw(Isis::IException);
+    InstrumentPositionSolveOption stringToInstrumentPositionSolveOption(QString option) throw(Isis::IException);
+    InstrumentPointingSolveOption stringToInstrumentPointingSolveOption(QString option) throw(Isis::IException);
 
     void setInstrumentPositionSettings(InstrumentPositionSolveOption option,
                                        int spkDegree = 2,
@@ -41,7 +41,7 @@ namespace Isis{
                                        bool positionOverHermite = false,
                                        double positionAprioriSigma = -1.0,
                                        double velocityAprioriSigma = -1.0,
-                                       double accelerationAprioriSigma = -1.0) /KeywordArgs="Optional"/;
+                                       double accelerationAprioriSigma = -1.0)  throw(Isis::IException) /KeywordArgs="Optional"/;
 
 
    void setInstrumentPointingSettings(InstrumentPointingSolveOption option,
@@ -51,7 +51,7 @@ namespace Isis{
                                       bool solvePolynomialOverExisting = false,
                                       double anglesAprioriSigma = -1.0,
                                       double angularVelocityAprioriSigma = -1.0,
-                                      double angularAccelerationAprioriSigma = -1.0) /KeywordArgs="Optional"/;
+                                      double angularAccelerationAprioriSigma = -1.0) throw(Isis::IException) /KeywordArgs="Optional"/;
 
 
 

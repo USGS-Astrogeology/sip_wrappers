@@ -51,134 +51,134 @@ namespace Isis {
         };
       };
 
-      ControlPoint();
-      ControlPoint(const QString &id);
+      ControlPoint() throw(Isis::IException);
+      ControlPoint(const QString &id) throw(Isis::IException);
 
       // Isis::ControlNet *Parent() { return parentNetwork; }
 
-      // void Load(PvlObject &p);
+      // void Load(PvlObject &p) throw(Isis::IException);
 
-      // void Add(ControlMeasure *measure);
-      // int Delete(ControlMeasure *measure);
-      // int Delete(QString serialNumber);
-      // int Delete(int index);
-      // Status ResetApriori();
+      // void Add(ControlMeasure *measure) throw(Isis::IException);
+      // int Delete(ControlMeasure *measure) throw(Isis::IException);
+      // int Delete(QString serialNumber) throw(Isis::IException);
+      // int Delete(int index) throw(Isis::IException);
+      // Status ResetApriori() throw(Isis::IException);
 
-      // const Isis::ControlMeasure *GetMeasure(QString serialNumber) const;
-      // ControlMeasure *GetMeasure(QString serialNumber);
+      // const Isis::ControlMeasure *GetMeasure(QString serialNumber) const throw(Isis::IException);
+      // ControlMeasure *GetMeasure(QString serialNumber) throw(Isis::IException);
 
-      // const ControlMeasure *GetMeasure(int index) const;
-      // ControlMeasure *GetMeasure(int index);
+      // const ControlMeasure *GetMeasure(int index) const throw(Isis::IException);
+      // ControlMeasure *GetMeasure(int index) throw(Isis::IException);
 
-      // const ControlMeasure *GetRefMeasure() const;
-      // ControlMeasure *GetRefMeasure();
+      // const ControlMeasure *GetRefMeasure() const throw(Isis::IException);
+      // ControlMeasure *GetRefMeasure() throw(Isis::IException);
 
-      // Status SetChooserName(QString name);
-      // Status SetDateTime(QString newDateTime);
-      // Status SetEditLock(bool editLock);
-      // Status SetId(QString id);
-      // Status SetRefMeasure(ControlMeasure *cm);
-      // Status SetRefMeasure(int index);
-      // Status SetRefMeasure(QString sn);
-      // Status SetRejected(bool rejected);
-      // Status SetIgnored(bool newIgnoreStatus);
-      // Status SetAdjustedSurfacePoint(SurfacePoint newSurfacePoint);
-      // Status SetType(PointType newType);
+      // Status SetChooserName(QString name) throw(Isis::IException);
+      // Status SetDateTime(QString newDateTime) throw(Isis::IException);
+      // Status SetEditLock(bool editLock) throw(Isis::IException);
+      // Status SetId(QString id) throw(Isis::IException);
+      // Status SetRefMeasure(ControlMeasure *cm) throw(Isis::IException);
+      // Status SetRefMeasure(int index) throw(Isis::IException);
+      // Status SetRefMeasure(QString sn) throw(Isis::IException);
+      // Status SetRejected(bool rejected) throw(Isis::IException);
+      // Status SetIgnored(bool newIgnoreStatus) throw(Isis::IException);
+      // Status SetAdjustedSurfacePoint(SurfacePoint newSurfacePoint) throw(Isis::IException);
+      // Status SetType(PointType newType) throw(Isis::IException);
       //
-      // Status SetAprioriRadiusSource(RadiusSource::Source source);
-      // Status SetAprioriRadiusSourceFile(QString sourceFile);
-      // Status SetAprioriSurfacePoint(SurfacePoint aprioriSP);
-      // Status SetAprioriSurfacePointSource(SurfacePointSource::Source source);
-      // Status SetAprioriSurfacePointSourceFile(QString sourceFile);
+      // Status SetAprioriRadiusSource(RadiusSource::Source source) throw(Isis::IException);
+      // Status SetAprioriRadiusSourceFile(QString sourceFile) throw(Isis::IException);
+      // Status SetAprioriSurfacePoint(SurfacePoint aprioriSP) throw(Isis::IException);
+      // Status SetAprioriSurfacePointSource(SurfacePointSource::Source source) throw(Isis::IException);
+      // Status SetAprioriSurfacePointSourceFile(QString sourceFile) throw(Isis::IException);
 
 //    Status UpdateSphericalPointCoordinates(const Latitude &lat, const Longitude &lon,
-//                                      const Distance &radius);
+//                                      const Distance &radius) throw(Isis::IException);
 
-      // Status ComputeApriori();
-      // Status ComputeResiduals();
-      // Status ComputeResiduals_Millimeters();
+      // Status ComputeApriori() throw(Isis::IException);
+      // Status ComputeResiduals() throw(Isis::IException);
+      // Status ComputeResiduals_Millimeters() throw(Isis::IException);
       //
-      // SurfacePoint GetAdjustedSurfacePoint() const;
-      // SurfacePoint GetBestSurfacePoint() const;
+      // SurfacePoint GetAdjustedSurfacePoint() const throw(Isis::IException);
+      // SurfacePoint GetBestSurfacePoint() const throw(Isis::IException);
 
-      QString GetChooserName() const;
-      QString GetDateTime() const;
-      bool IsEditLocked() const;
-      bool IsRejected() const;
-      QString GetId() const;
-      bool IsIgnored() const;
-      bool IsValid() const;
-      bool IsInvalid() const;
-      bool IsFixed() const;
+      QString GetChooserName() const throw(Isis::IException);
+      QString GetDateTime() const throw(Isis::IException);
+      bool IsEditLocked() const throw(Isis::IException);
+      bool IsRejected() const throw(Isis::IException);
+      QString GetId() const throw(Isis::IException);
+      bool IsIgnored() const throw(Isis::IException);
+      bool IsValid() const throw(Isis::IException);
+      bool IsInvalid() const throw(Isis::IException);
+      bool IsFixed() const throw(Isis::IException);
 
-      bool HasAprioriCoordinates();
-      bool IsConstrained();
-      bool IsLatitudeConstrained();
-      bool IsLongitudeConstrained();
-      bool IsRadiusConstrained();
-      int NumberOfConstrainedCoordinates();
+      bool HasAprioriCoordinates() throw(Isis::IException);
+      bool IsConstrained() throw(Isis::IException);
+      bool IsLatitudeConstrained() throw(Isis::IException);
+      bool IsLongitudeConstrained() throw(Isis::IException);
+      bool IsRadiusConstrained() throw(Isis::IException);
+      int NumberOfConstrainedCoordinates() throw(Isis::IException);
 
-      static QString PointTypeToString(PointType type);
-      static PointType StringToPointType(QString pointTypeString);
+      static QString PointTypeToString(PointType type) throw(Isis::IException);
+      static PointType StringToPointType(QString pointTypeString) throw(Isis::IException);
 
-      QString GetPointTypeString() const;
-      // PointType GetType() const;
+      QString GetPointTypeString() const throw(Isis::IException);
+      // PointType GetType() const throw(Isis::IException);
 
-      static QString RadiusSourceToString(RadiusSource::Source source);
-      static RadiusSource::Source StringToRadiusSource(QString str);
-      QString GetRadiusSourceString() const;
-      static QString SurfacePointSourceToString(SurfacePointSource::Source source);
-      // static SurfacePointSource::Source StringToSurfacePointSource(QString str);
-      QString GetSurfacePointSourceString() const;
+      static QString RadiusSourceToString(RadiusSource::Source source) throw(Isis::IException);
+      static RadiusSource::Source StringToRadiusSource(QString str) throw(Isis::IException);
+      QString GetRadiusSourceString() const throw(Isis::IException);
+      static QString SurfacePointSourceToString(SurfacePointSource::Source source) throw(Isis::IException);
+      // static SurfacePointSource::Source StringToSurfacePointSource(QString str) throw(Isis::IException);
+      QString GetSurfacePointSourceString() const throw(Isis::IException);
 
-      // SurfacePoint GetAprioriSurfacePoint() const;
-      // RadiusSource::Source GetAprioriRadiusSource() const;
-      // QString GetAprioriRadiusSourceFile() const;
-      // SurfacePointSource::Source GetAprioriSurfacePointSource() const;
-      // QString GetAprioriSurfacePointSourceFile() const;
+      // SurfacePoint GetAprioriSurfacePoint() const throw(Isis::IException);
+      // RadiusSource::Source GetAprioriRadiusSource() const throw(Isis::IException);
+      // QString GetAprioriRadiusSourceFile() const throw(Isis::IException);
+      // SurfacePointSource::Source GetAprioriSurfacePointSource() const throw(Isis::IException);
+      // QString GetAprioriSurfacePointSourceFile() const throw(Isis::IException);
 
-      int GetNumMeasures() const;
-      int GetNumValidMeasures() const;
-      int GetNumLockedMeasures() const;
-      bool HasSerialNumber(QString serialNumber) const;
-      // int IndexOf(ControlMeasure *, bool throws = true) const;
-      int IndexOf(QString sn, bool throws = true) const;
-      int IndexOfRefMeasure() const;
-      bool IsReferenceExplicit() const;
-      QString GetReferenceSN() const;
+      int GetNumMeasures() const throw(Isis::IException);
+      int GetNumValidMeasures() const throw(Isis::IException);
+      int GetNumLockedMeasures() const throw(Isis::IException);
+      bool HasSerialNumber(QString serialNumber) const throw(Isis::IException);
+      // int IndexOf(ControlMeasure *, bool throws = true) const throw(Isis::IException);
+      int IndexOf(QString sn, bool throws = true) const throw(Isis::IException);
+      int IndexOfRefMeasure() const throw(Isis::IException);
+      bool IsReferenceExplicit() const throw(Isis::IException);
+      QString GetReferenceSN() const throw(Isis::IException);
 
-      // Statistics GetStatistic(double(ControlMeasure::*statFunc)() const) const;
-      // Statistics GetStatistic(long dataType) const;
+      // Statistics GetStatistic(double(ControlMeasure::*statFunc)() const) const throw(Isis::IException);
+      // Statistics GetStatistic(long dataType) const throw(Isis::IException);
 
-      // QList< ControlMeasure * > getMeasures(bool excludeIgnored = false) const;
-      // QList< QString > getCubeSerialNumbers() const;
+      // QList< ControlMeasure * > getMeasures(bool excludeIgnored = false) const throw(Isis::IException);
+      // QList< QString > getCubeSerialNumbers() const throw(Isis::IException);
 
-      // const ControlMeasure *operator[](QString serialNumber) const;
-      // ControlMeasure *operator[](QString serialNumber);
+      // const ControlMeasure *operator[](QString serialNumber) const throw(Isis::IException);
+      // ControlMeasure *operator[](QString serialNumber) throw(Isis::IException);
 
-      // const ControlMeasure *operator[](int index) const;
-      // ControlMeasure *operator[](int index);
+      // const ControlMeasure *operator[](int index) const throw(Isis::IException);
+      // ControlMeasure *operator[](int index) throw(Isis::IException);
 
-      // bool operator!=(const ControlPoint &pPoint) const;
-      // bool operator==(const ControlPoint &pPoint) const;
-      // const ControlPoint &operator=(const ControlPoint &pPoint);
+      // bool operator!=(const ControlPoint &pPoint) const throw(Isis::IException);
+      // bool operator==(const ControlPoint &pPoint) const throw(Isis::IException);
+      // const ControlPoint &operator=(const ControlPoint &pPoint) throw(Isis::IException);
 
       // The next 7 methods are specifically to support BundleAdjust
-      void ZeroNumberOfRejectedMeasures();
-      void SetNumberOfRejectedMeasures(int numRejected);
-      int GetNumberOfRejectedMeasures() const;
-      double GetSampleResidualRms() const;
-      double GetLineResidualRms() const;
-      double GetResidualRms() const;
-      void ClearJigsawRejected();
+      void ZeroNumberOfRejectedMeasures() throw(Isis::IException);
+      void SetNumberOfRejectedMeasures(int numRejected) throw(Isis::IException);
+      int GetNumberOfRejectedMeasures() const throw(Isis::IException);
+      double GetSampleResidualRms() const throw(Isis::IException);
+      double GetLineResidualRms() const throw(Isis::IException);
+      double GetResidualRms() const throw(Isis::IException);
+      void ClearJigsawRejected() throw(Isis::IException);
 
-      // ControlPointFileEntryV0002 ToFileEntry() const;
+      // ControlPointFileEntryV0002 ToFileEntry() const throw(Isis::IException);
 
     private:
-      // void SetExplicitReference(ControlMeasure *measure);
-      void ValidateMeasure(QString serialNumber) const;
-      // void AddMeasure(ControlMeasure *measure);
-      void PointModified();
+      // void SetExplicitReference(ControlMeasure *measure) throw(Isis::IException);
+      void ValidateMeasure(QString serialNumber) const throw(Isis::IException);
+      // void AddMeasure(ControlMeasure *measure) throw(Isis::IException);
+      void PointModified() throw(Isis::IException);
 
 
     // private:
