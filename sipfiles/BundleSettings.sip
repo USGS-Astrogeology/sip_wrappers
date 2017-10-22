@@ -28,9 +28,9 @@ namespace Isis {
     //   Chen
     // };
 
-    BundleSettings();
+    BundleSettings() throw(Isis::IException);
 
-    void setValidateNetwork(bool);
+    void setValidateNetwork(bool) throw(Isis::IException);
 
     void setSolveOptions(bool solveObservationMode = false,
                          bool updateCubeLabel = false,
@@ -38,24 +38,24 @@ namespace Isis {
                          bool solveRadius = false,
                          double globalLatitudeAprioriSigma = Isis::Null,
                          double globalLongitudeAprioriSigma = Isis::Null,
-                         double globalRadiusAprioriSigma = Isis::Null)  /KeywordArgs="Optional"/;
+                         double globalRadiusAprioriSigma = Isis::Null)  throw(Isis::IException) /KeywordArgs="Optional"/;
 
    void setOutlierRejection(bool outlierRejection,
-                            double multiplier = 1.0);
+                            double multiplier = 1.0) throw(Isis::IException);
 
-   bool solveObservationMode() const;
-   bool solveRadius() const;
-   bool updateCubeLabel() const;
-   bool errorPropagation() const;
-   bool outlierRejection() const;
-   double outlierRejectionMultiplier() const;
-   double globalLatitudeAprioriSigma() const;
-   double globalLongitudeAprioriSigma() const;
-   double globalRadiusAprioriSigma() const;
+   bool solveObservationMode() const throw(Isis::IException);
+   bool solveRadius() const throw(Isis::IException);
+   bool updateCubeLabel() const throw(Isis::IException);
+   bool errorPropagation() const throw(Isis::IException);
+   bool outlierRejection() const throw(Isis::IException);
+   double outlierRejectionMultiplier() const throw(Isis::IException);
+   double globalLatitudeAprioriSigma() const throw(Isis::IException);
+   double globalLongitudeAprioriSigma() const throw(Isis::IException);
+   double globalRadiusAprioriSigma() const throw(Isis::IException);
 
-   int numberSolveSettings() const;
-   Isis::BundleObservationSolveSettings observationSolveSettings(QString instrumentId) const;
-   Isis::BundleObservationSolveSettings observationSolveSettings(int n) const;
+   int numberSolveSettings() const throw(Isis::IException);
+   Isis::BundleObservationSolveSettings observationSolveSettings(QString instrumentId) const throw(Isis::IException);
+   Isis::BundleObservationSolveSettings observationSolveSettings(int n) const throw(Isis::IException);
 
    void setObservationSolveOptions(QList<Isis::BundleObservationSolveSettings>);
   //  %MethodCode
@@ -67,11 +67,11 @@ namespace Isis {
   //      Isis::BundleObservationSolveSettings *settings = (Isis::BundleObservationSolveSettings*)sipConvertToType(pyStat, sipType_Isis_BundleObservationSolveSettings, NULL, SIP_NOT_NONE, NULL, &sipErr);
   //      cppSettingsList->append(*settings);
   //    }
-   //
+  //
   //    sipCpp->setObservationSolveOptions(*cppSettingsList);
   //  %End
 
-   SIP_PYLIST maximumLikelihoodEstimatorModels() const;
+   SIP_PYLIST maximumLikelihoodEstimatorModels() const throw(Isis::IException);
    %MethodCode // convert QList<QPair> to Python list if tuples
      typedef Isis::MaximumLikelihoodWFunctions::Model Model;
      size_t size = sipCpp->maximumLikelihoodEstimatorModels().size();
@@ -97,17 +97,17 @@ namespace Isis {
    %End
 
 
-   int numberTargetBodyParameters() const;
-   bool solveTargetBody() const;
-   bool solvePoleRA() const;
-   bool solvePoleRAVelocity() const;
-   bool solvePoleDec() const;
-   bool solvePoleDecVelocity() const;
-   bool solvePM() const;
-   bool solvePMVelocity() const;
-   bool solvePMAcceleration() const;
-   bool solveTriaxialRadii() const;
-   bool solveMeanRadius() const;
+   int numberTargetBodyParameters() const throw(Isis::IException);
+   bool solveTargetBody() const throw(Isis::IException);
+   bool solvePoleRA() const throw(Isis::IException);
+   bool solvePoleRAVelocity() const throw(Isis::IException);
+   bool solvePoleDec() const throw(Isis::IException);
+   bool solvePoleDecVelocity() const throw(Isis::IException);
+   bool solvePM() const throw(Isis::IException);
+   bool solvePMVelocity() const throw(Isis::IException);
+   bool solvePMAcceleration() const throw(Isis::IException);
+   bool solveTriaxialRadii() const throw(Isis::IException);
+   bool solveMeanRadius() const throw(Isis::IException);
 
   };
 };

@@ -2,6 +2,23 @@
 %Import QtCore/QtCoremod.sip
 %Import QtXml/QtXmlmod.sip
 
+
+
+%Exception Isis::IException(SIP_Exception) /PyName=IException/
+{
+%TypeHeaderCode
+#include "IException.h"
+%End
+%RaiseCode
+    const char *detail = sipExceptionRef.what();
+
+    SIP_BLOCK_THREADS
+    PyErr_SetString(sipException_Isis_IException, detail);
+    SIP_UNBLOCK_THREADS
+%End
+};
+
+
 %MappedType QVector<QSharedPointer<Isis::BundleControlPoint> >
 {
   %TypeHeaderCode
